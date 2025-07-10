@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
         let unsubscribeAuth = () => {}; // Initialize for cleanup
 
         try {
-            const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+const firebaseConfig = typeof window.__firebase_config !== 'undefined' ? JSON.parse(window.__firebase_config) : {};
             console.log("AppProvider: firebaseConfig:", firebaseConfig);
 
             // Crucial check: Ensure firebaseConfig is not empty before initializing
