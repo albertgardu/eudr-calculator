@@ -270,7 +270,7 @@ const CalculatorSection = () => {
     const [message, setMessage] = useState(''); // For user messages/errors
 
     // Fetch data from Firestore
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(() => {
         if (!db || !isAuthReady) return;
 
@@ -568,8 +568,8 @@ const AdminDashboard = () => {
     const publicDataPath = `/artifacts/${appId}/public/data`;
 
     // Generic CRUD operations for admin
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const fetchData = (collectionName, setState) => {
+
+        const fetchData = (collectionName, setState) => {
         if (!db || !isAuthReady) return;
         const unsub = onSnapshot(collection(db, `${publicDataPath}/${collectionName}`), (snapshot) => {
             setState(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
@@ -613,8 +613,8 @@ const AdminDashboard = () => {
         const [newRatio, setNewRatio] = useState({ commodity: '', processedProduct: '', ratio: '' });
         const [editingId, setEditingId] = useState(null);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        useEffect(() => fetchData('conversionRatios', setRatios), [db, isAuthReady]);
+
+                useEffect(() => fetchData('conversionRatios', setRatios), [db, isAuthReady]);
 
         const handleAddOrUpdate = async () => {
             if (!newRatio.commodity || !newRatio.processedProduct || isNaN(parseFloat(newRatio.ratio))) {
@@ -713,8 +713,8 @@ const AdminDashboard = () => {
         const [newProductType, setNewProductType] = useState({ commodity: '', name: '' });
         const [editingId, setEditingId] = useState(null);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        useEffect(() => fetchData('productTypes', setProductTypes), [db, isAuthReady]);
+
+                useEffect(() => fetchData('productTypes', setProductTypes), [db, isAuthReady]);
 
         const handleAddOrUpdate = async () => {
             if (!newProductType.commodity || !newProductType.name) {
@@ -803,8 +803,8 @@ const AdminDashboard = () => {
         const [newYield, setNewYield] = useState({ country: '', commodity: '', yield: '' });
         const [editingId, setEditingId] = useState(null);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        useEffect(() => fetchData('yieldData', setYields), [db, isAuthReady]);
+
+                useEffect(() => fetchData('yieldData', setYields), [db, isAuthReady]);
 
         const handleAddOrUpdate = async () => {
             if (!newYield.country || !newYield.commodity || isNaN(parseFloat(newYield.yield))) {
@@ -903,8 +903,8 @@ const AdminDashboard = () => {
         const [newFlag, setNewFlag] = useState({ country: '', riskLevel: 'Low', description: '' });
         const [editingId, setEditingId] = useState(null);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        useEffect(() => fetchData('riskFlags', setRiskFlags), [db, isAuthReady]);
+
+                useEffect(() => fetchData('riskFlags', setRiskFlags), [db, isAuthReady]);
 
         const handleAddOrUpdate = async () => {
             if (!newFlag.country || !newFlag.riskLevel || !newFlag.description) {
@@ -1056,8 +1056,8 @@ const MainApp = () => {
     const { isAdmin, setIsAdmin, userId, isAuthReady, db } = useAppContext(); // Now correctly gets context
 
     // Initial data seeding for public collections if they are empty
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => {
+
+        useEffect(() => {
         const seedData = async () => {
             if (!db || !isAuthReady || !userId) {
                 console.log("Seed data skipped: Firebase not ready or user not authenticated.");
