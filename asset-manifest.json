@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/eudr-calculator/static/css/main.32a0e11e.css",
+    "main.js": "/eudr-calculator/static/js/main.f506cf1f.js",
+    "index.html": "/eudr-calculator/index.html",
+    "main.32a0e11e.css.map": "/eudr-calculator/static/css/main.32a0e11e.css.map",
+    "main.f506cf1f.js.map": "/eudr-calculator/static/js/main.f506cf1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32a0e11e.css",
+    "static/js/main.f506cf1f.js"
+  ]
+}
