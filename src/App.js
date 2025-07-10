@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, doc, addDoc, setDoc, deleteDoc, onSnapshot, collection, getDocs } from 'firebase/firestore';
 import { Home, Calculator, Settings, FileText, Lock, Unlock, Weight, AreaChart, ShieldAlert, RotateCcw } from 'lucide-react'; // Icons
+import Seeder from './Seeder';
 
 // Create a context for Firebase and user data
 const AppContext = createContext();
@@ -89,21 +90,24 @@ const firebaseConfig = typeof window.__firebase_config !== 'undefined' ? window.
 
     const value = { app, db, auth, userId, isAuthReady, isAdmin, setIsAdmin };
 
-    return (
-        <AppContext.Provider value={value}>
-            {providerMessage ? (
-                <div className="p-8 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg text-center min-h-screen flex items-center justify-center">
-                    <div>
-                        <h2 className="text-2xl font-bold mb-4">Application Error</h2>
-                        <p>{providerMessage}</p>
-                        <p className="mt-4 text-sm">Please check the browser console for more details.</p>
-                    </div>
+return (
+    <AppContext.Provider value={value}>
+        {window.location.pathname.endsWith('/seed') ? (
+            <Seeder />
+        ) : providerMessage ? (
+            <div className="p-8 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-lg text-center min-h-screen flex items-center justify-center">
+                <div>
+                    <h2 className="text-2xl font-bold mb-4">Application Error</h2>
+                    <p>{providerMessage}</p>
+                    <p className="mt-4 text-sm">Please check the browser console for more details.</p>
                 </div>
-            ) : (
-                children
-            )}
-        </AppContext.Provider>
-    );
+            </div>
+        ) : (
+            children
+        )}
+    </AppContext.Provider>
+);
+
 };
 
 // Custom hook to use the context
