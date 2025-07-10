@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/eudr-calculator/static/css/main.32a0e11e.css",
-    "main.js": "/eudr-calculator/static/js/main.f506cf1f.js",
+    "main.js": "/eudr-calculator/static/js/main.b770404b.js",
     "index.html": "/eudr-calculator/index.html",
     "main.32a0e11e.css.map": "/eudr-calculator/static/css/main.32a0e11e.css.map",
-    "main.f506cf1f.js.map": "/eudr-calculator/static/js/main.f506cf1f.js.map"
+    "main.b770404b.js.map": "/eudr-calculator/static/js/main.b770404b.js.map"
   },
   "entrypoints": [
     "static/css/main.32a0e11e.css",
-    "static/js/main.f506cf1f.js"
+    "static/js/main.b770404b.js"
   ]
 }
